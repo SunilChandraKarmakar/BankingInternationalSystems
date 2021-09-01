@@ -37,7 +37,6 @@ D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternation
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\BankingInternationalSystemsApp.Client.pdb
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\BankingInternationalSystemsApp.Client.genruntimeconfig.cache
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\BankingInternationalSystemsApp.Client.csproj.CopyComplete
-D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\Account\Create.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\AutoMapper.dll
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
