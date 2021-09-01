@@ -8,7 +8,8 @@ namespace BankingInternationalSystemsApp.Model.Models
         public Account()
         {
             WithdrawAccounts = new HashSet<WithdrawAccount>(); 
-            LodgeAccounts = new HashSet<LodgeAccount>();    
+            LodgeAccounts = new HashSet<LodgeAccount>();
+            AccountRoles = new HashSet<AccountRole>();
         }
 
         public int Id { get; set; }
@@ -40,6 +41,11 @@ namespace BankingInternationalSystemsApp.Model.Models
         [Display(Name = "Email Address")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Provied Your Password")]
+        [StringLength(100, MinimumLength = 2)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
         [Required(ErrorMessage = "Please Provied Full Address")]
         [StringLength(500, MinimumLength = 2)]
         [DataType(DataType.MultilineText)]
@@ -47,5 +53,6 @@ namespace BankingInternationalSystemsApp.Model.Models
 
         public virtual ICollection<WithdrawAccount> WithdrawAccounts { get; set; }
         public virtual ICollection<LodgeAccount> LodgeAccounts {  get; set; }   
+        public virtual ICollection<AccountRole> AccountRoles { get; set; }
     }
 }

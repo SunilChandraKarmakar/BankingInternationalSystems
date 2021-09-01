@@ -18,19 +18,19 @@ namespace BankingInternationalSystemsApp.Database
             modelBuilder.Entity<BankService>().HasIndex(bs => bs.Name).IsUnique();
             modelBuilder.Entity<Role>().HasIndex(r => r.Name).IsUnique();
 
-            modelBuilder.Entity<Role>().HasData(
-                new Role { Id = 1, Name = "Admin" },
-                new Role { Id = 2, Name = "User" }
-            );
+            //modelBuilder.Entity<Role>().HasData(
+            //    new Role { Id = 1, Name = "Admin" },
+            //    new Role { Id = 2, Name = "User" }
+            //);
 
-            modelBuilder.Entity<Account>().HasData(
-                new Account { Id = 1, FirstName = "Mr Mark", SecondName = "Job", AccountNumber = 111111111, 
-                              Email = "mark@gmail.com", Address = "USA", InitialBalance = 200 }
-            );
+            //modelBuilder.Entity<Account>().HasData(
+            //    new Account { Id = 1, FirstName = "Mr Mark", SecondName = "Job", AccountNumber = 111111111, 
+            //                  Email = "mark@gmail.com", Address = "USA", InitialBalance = 200 }
+            //);
 
-            modelBuilder.Entity<AccountRole>().HasData(
-                new AccountRole { Id = 1, AccountId = 1, RoleId = 1 }    
-            );
+            //modelBuilder.Entity<AccountRole>().HasData(
+            //    new AccountRole { Id = 1, AccountId = 1, RoleId = 1 }    
+            //);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

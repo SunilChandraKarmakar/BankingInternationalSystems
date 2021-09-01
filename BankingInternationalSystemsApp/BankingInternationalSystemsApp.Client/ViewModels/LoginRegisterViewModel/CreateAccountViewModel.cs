@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingInternationalSystemsApp.Client.ViewModels.Account
+namespace BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewModel
 {
     public class CreateAccountViewModel
     {
@@ -34,6 +34,11 @@ namespace BankingInternationalSystemsApp.Client.ViewModels.Account
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email Address")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Provied Your Password")]
+        [StringLength(100, MinimumLength = 2)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [Required(ErrorMessage = "Please Provied Full Address")]
         [StringLength(500, MinimumLength = 2)]
