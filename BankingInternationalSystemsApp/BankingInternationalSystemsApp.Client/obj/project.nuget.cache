@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "lhHNf9j96ULl7L8coJyR5wqGSHvhQGEi4OZDEGpSCpl1D176w2c/rY5PXPgrbwyWIzYNH97Jl3w++nQNV5b0Xw==",
+  "success": true,
+  "projectFilePath": "D:\\BankingInternationalSystems\\BankingInternationalSystemsApp\\BankingInternationalSystemsApp.Client\\BankingInternationalSystemsApp.Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sunil\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.8\\microsoft.netcore.app.host.win-x64.5.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
