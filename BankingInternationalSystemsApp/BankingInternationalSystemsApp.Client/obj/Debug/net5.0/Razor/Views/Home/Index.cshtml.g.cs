@@ -26,8 +26,15 @@ using BankingInternationalSystemsApp.Client.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\Views\_ViewImports.cshtml"
+using BankingInternationalSystemsApp.Client.ViewModels.Account;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9cb9de4a68a3f3d469fd7f9395654752e517fa10", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"05a507735ef650335365b52d0964abda09e946c5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"addb69e431b381df581c8b807b39a4930b935022", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

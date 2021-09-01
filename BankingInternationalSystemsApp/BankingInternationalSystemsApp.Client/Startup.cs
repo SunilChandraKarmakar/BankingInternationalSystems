@@ -1,3 +1,7 @@
+using BankingInternationalSystemsApp.Manager;
+using BankingInternationalSystemsApp.Manager.Contracts;
+using BankingInternationalSystemsApp.Repository;
+using BankingInternationalSystemsApp.Repository.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +29,9 @@ namespace BankingInternationalSystemsApp.Client
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
+
+            services.AddScoped<IAccountManager, AccountManager>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
