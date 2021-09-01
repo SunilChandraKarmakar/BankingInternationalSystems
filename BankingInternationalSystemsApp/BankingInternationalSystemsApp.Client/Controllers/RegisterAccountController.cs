@@ -1,87 +1,67 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
+using BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewModel;
+using BankingInternationalSystemsApp.Manager.Contracts;
+using BankingInternationalSystemsApp.Model.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BankingInternationalSystemsApp.Client.Controllers
 {
     public class RegisterAccountController : Controller
     {
-        // GET: RegisterAccountController
-        public ActionResult Index()
+        private readonly IAccountManager _accountManager;
+        private readonly IAccountRoleManager _accountRoleManager;
+        private readonly INotyfService _notyfService;
+        private readonly IMapper _mapper;
+
+        public RegisterAccountController(IAccountManager accountManager, IAccountRoleManager accountRoleManager,
+                                        INotyfService notyfService , IMapper mapper)
         {
-            return View();
+            _accountManager = accountManager;
+            _accountRoleManager = accountRoleManager;
+            _notyfService = notyfService;
+            _mapper = mapper;   
         }
 
-        // GET: RegisterAccountController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: RegisterAccountController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: RegisterAccountController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> RegisterAccount(AccountLoginViewModel registerAccount)
         {
-            try
+            if(ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                Account createAccount = _mapper.Map<Account>(registerAccount.CreateAccountViewModel);
+                createAccount.AccountNumber = GenerateUniqueAccountNumber();
+                createAccount.InitialBalance = 50;
+
+                AccountRole accountRoleIsUser = new AccountRole
+                {
+                    AccountId = createAccount.Id,
+                    RoleId = 2
+                };
+
+                bool isAccountCreated = await _accountManager.Add(createAccount);
+                bool isAccountRoleCreated = await _accountRoleManager.Add(accountRoleIsUser);
+                
+                if(isAccountCreated && isAccountRoleCreated)
+                {
+                    _notyfService.Success("Account Registered Success.", 5);
+                    return RedirectToAction("Login", "Login");
+                }
+                else
+                {
+                    _notyfService.Error("Account Registered Faild!", 5);
+                    return RedirectToAction("Login", "Login");
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return RedirectToAction("Login", "Login");
         }
 
-        // GET: RegisterAccountController/Edit/5
-        public ActionResult Edit(int id)
+        private int GenerateUniqueAccountNumber()
         {
-            return View();
-        }
-
-        // POST: RegisterAccountController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: RegisterAccountController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: RegisterAccountController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Random uniqueAccountNumber = new Random(10000);
+            return uniqueAccountNumber.Next(1111111, 9999999);
         }
     }
 }

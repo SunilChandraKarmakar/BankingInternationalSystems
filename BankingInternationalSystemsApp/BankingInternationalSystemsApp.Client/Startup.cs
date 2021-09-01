@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification;
 using BankingInternationalSystemsApp.Manager;
 using BankingInternationalSystemsApp.Manager.Contracts;
 using BankingInternationalSystemsApp.Repository;
@@ -27,11 +28,19 @@ namespace BankingInternationalSystemsApp.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddNotyf(config => {
+                config.DurationInSeconds = 5;
+                config.IsDismissable = true;
+                config.Position = NotyfPosition.BottomRight;
+            });        
+
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
 
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountRoleManager, AccountRoleManager>();
+            services.AddScoped<IAccountRoleRepository, AccountRoleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -40,6 +40,12 @@ namespace BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewMode
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Provied Your Confirm Password")]
+        [StringLength(100, MinimumLength = 2)]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Can not match your password!")]
+        public string ConfirmPassword { get; set; }
+
         [Required(ErrorMessage = "Please Provied Full Address")]
         [StringLength(500, MinimumLength = 2)]
         [DataType(DataType.MultilineText)]

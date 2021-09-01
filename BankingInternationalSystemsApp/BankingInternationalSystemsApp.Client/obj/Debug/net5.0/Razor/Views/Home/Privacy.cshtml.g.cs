@@ -28,13 +28,13 @@ using BankingInternationalSystemsApp.Client.Models;
 #nullable disable
 #nullable restore
 #line 3 "D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\Views\_ViewImports.cshtml"
-using BankingInternationalSystemsApp.Client.ViewModels.Account;
+using BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewModel;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"addb69e431b381df581c8b807b39a4930b935022", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f4b52d57ee3f48fb71f6b8d5e044b064df028e8", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

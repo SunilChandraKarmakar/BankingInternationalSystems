@@ -1,4 +1,4 @@
-﻿
+﻿@model AccountLoginViewModel
 @{
     Layout = null;
 }
@@ -23,16 +23,33 @@
                 </div>
 		    </div>
 	    </div>
+        <div class="alert alert-primary" role="alert">
+            <h6>Here is some notification for registered a new account.</h6>
+            <ul>
+                <li>When you register a new account, then default unique account number will be created.</li>
+                <li>When you register a new account, $50 will be store to the account by default.</li>
+			</ul>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <h6 class="text-center">User or Admin Login</h6>
                         <hr />
-                        <form method="post">
+                        <form method="post" asp-controller="Login" asp-action="Login">
                             <div class="form-group">
-                                <label></label>
+                                <label asp-for="LoginViewModel.Email">Email</label>
+                                <input type="email" asp-for="LoginViewModel.Email" class="form-control" />
+                                <span asp-validation-for="LoginViewModel.Email" class="text-danger"></span>
 							</div>
+                            <div class="form-group">
+                                <label asp-for="LoginViewModel.Password">Password</label>
+                                <input type="password" asp-for="LoginViewModel.Password" class="form-control" />
+                                <span asp-validation-for="LoginViewModel.Password" class="text-danger"></span>
+							</div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Login</button>
+                            </div>
 						</form>
                     </div>
                 </div>
@@ -40,14 +57,57 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        This is some text within a card body.
+                        <h6 class="text-center">Register Account</h6>
+                        <hr />
+                        <form method="post" asp-controller="Login" asp-action="Login">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CreateAccountViewModel.FirstName">First Name</label>
+                                    <input type="text" asp-for="CreateAccountViewModel.FirstName" class="form-control" />
+                                    <span asp-validation-for="CreateAccountViewModel.FirstName" class="text-danger"></span>
+								</div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CreateAccountViewModel.SecondName">Second Name</label>
+                                    <input type="text" asp-for="CreateAccountViewModel.SecondName" class="form-control" />
+                                    <span asp-validation-for="CreateAccountViewModel.SecondName" class="text-danger"></span>
+								</div>
+							</div>
+                            <div class="form-group">
+                                <label asp-for="CreateAccountViewModel.Email">Email</label>
+                                <input type="email" asp-for="CreateAccountViewModel.Email" class="form-control" />
+                                <span asp-validation-for="CreateAccountViewModel.Email" class="text-danger"></span>
+							</div>
+                             <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CreateAccountViewModel.Password">Password</label>
+                                    <input type="password" asp-for="CreateAccountViewModel.Password" class="form-control" />
+                                    <span asp-validation-for="CreateAccountViewModel.Password" class="text-danger"></span>
+								</div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CreateAccountViewModel.ConfirmPassword">Confirm Password</label>
+                                    <input type="password" asp-for="CreateAccountViewModel.ConfirmPassword" class="form-control" />
+                                    <span asp-validation-for="CreateAccountViewModel.ConfirmPassword" class="text-danger"></span>
+								</div>
+							</div>
+                             <div class="form-group">
+                                <label asp-for="CreateAccountViewModel.Address">Address</label>
+                                <textarea asp-for="CreateAccountViewModel.Address" class="form-control" placeholder="Enter your full address">Address</textarea>
+                                <span asp-validation-for="CreateAccountViewModel.Address" class="text-danger"></span>
+							</div>
+                             <div class="form-group">
+                               <button type="submit" class="btn btn-success">Register Account</button>
+							</div>
+						</form>
                     </div>
                 </div>
 		    </div>
 	    </div>
 	</div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
 </body>
 </html>
