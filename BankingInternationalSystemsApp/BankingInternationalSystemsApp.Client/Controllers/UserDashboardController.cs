@@ -17,14 +17,17 @@ namespace BankingInternationalSystemsApp.Client.Controllers
     {
         private readonly IAccountManager _accountManager;
         private readonly IWithdrawAccountManager _withdrawAccountManager;
+        private readonly ILodgeAccountManager _lodgeAccountManager;
         private readonly IMapper _mapper;
         private readonly INotyfService _notyfService;
 
 
-        public UserDashboardController(IAccountManager accountManager, IMapper mapper, INotyfService notyfService, IWithdrawAccountManager withdrawAccountManager)
+        public UserDashboardController(IAccountManager accountManager, IMapper mapper, INotyfService notyfService, 
+                                       IWithdrawAccountManager withdrawAccountManager, ILodgeAccountManager lodgeAccountManager)
         {
             _accountManager = accountManager;
-            _withdrawAccountManager = withdrawAccountManager;   
+            _withdrawAccountManager = withdrawAccountManager;
+            _lodgeAccountManager = lodgeAccountManager;
             _mapper = mapper;
             _notyfService = notyfService;
         }
@@ -101,6 +104,50 @@ namespace BankingInternationalSystemsApp.Client.Controllers
                     if(isUpdateCurrentUser && isSaveWithdrawAccountInfo)
                     {
                         _notyfService.Success("Withdraw Ammount Successfull.", 5);
+                        return RedirectToAction("MyAccountInfo");
+                    }
+                }
+
+                return View(model);
+            }
+
+            return RedirectToAction("Login", "Login");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> LodgeAmmount()
+        {
+            if(HttpContext.Session.GetString("userId") != null)
+            {
+                CreateLodgeAccountViewModel createLodgeAccountViewModel = new CreateLodgeAccountViewModel
+                {
+                    AccountId = Convert.ToInt32((HttpContext.Session.GetString("userId")))
+                };
+
+                return View(createLodgeAccountViewModel);
+            }
+
+            return RedirectToAction("Login", "Login");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LodgeAmmount(CreateLodgeAccountViewModel model)
+        {
+            if (HttpContext.Session.GetString("userId") != null)
+            {
+                if(ModelState.IsValid)
+                {
+                    Account currentUser = await _accountManager.GetById(model.AccountId);
+                    currentUser.InitialBalance = currentUser.InitialBalance + model.Ammount;
+                    bool isUpdateCurrentUser = await _accountManager.Update(currentUser);
+
+                    LodgeAccount lodgeAccountInfo = _mapper.Map<LodgeAccount>(model);
+                    lodgeAccountInfo.LodgeDateTime = DateTime.UtcNow;
+                    bool isSaveLodgeAccountInfo = await _lodgeAccountManager.Add(lodgeAccountInfo);
+
+                    if (isUpdateCurrentUser && isSaveLodgeAccountInfo)
+                    {
+                        _notyfService.Success("Lodge Ammount Successfull.", 5);
                         return RedirectToAction("MyAccountInfo");
                     }
                 }

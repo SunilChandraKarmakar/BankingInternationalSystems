@@ -14,6 +14,7 @@ namespace BankingInternationalSystemsApp.Client.Utility
             CreateMap<LoginAccountViewModel, Account>();
             CreateMap<Account, LoginAccountViewModel>();
             CreateMap<CreateWithdrawAccountViewModel, WithdrawAccount>();
+            CreateMap<CreateLodgeAccountViewModel, LodgeAccount>();
         }
     }
 }

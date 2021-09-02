@@ -51,6 +51,8 @@ namespace BankingInternationalSystemsApp.Client
             services.AddScoped<IAccountRoleRepository, AccountRoleRepository>();
             services.AddScoped<IWithdrawAccountManager, WithdrawAccountManager>();
             services.AddScoped<IWithdrawAccountRepository, WithdrawAccountRepository>();
+            services.AddScoped<ILodgeAccountManager, LodgeAccountManager>();
+            services.AddScoped<ILodgeAccountRepository, LodgeAccountRepository>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
