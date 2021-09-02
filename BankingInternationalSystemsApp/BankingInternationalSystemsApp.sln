@@ -9,9 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingInternationalSystems
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingInternationalSystemsApp.Repository", "BankingInternationalSystemsApp.Repository\BankingInternationalSystemsApp.Repository.csproj", "{1188C12D-5C8E-4597-BCF5-FE9293250A98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingInternationalSystemsApp.Manager", "BankingInternationalSystemsApp.Manager\BankingInternationalSystemsApp.Manager.csproj", "{A5242CA8-43A2-42BF-BC5F-BD64399F2A3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingInternationalSystemsApp.Manager", "BankingInternationalSystemsApp.Manager\BankingInternationalSystemsApp.Manager.csproj", "{A5242CA8-43A2-42BF-BC5F-BD64399F2A3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingInternationalSystemsApp.Client", "BankingInternationalSystemsApp.Client\BankingInternationalSystemsApp.Client.csproj", "{2C3F1F8B-90B3-4865-B361-61160B4FD850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingInternationalSystemsApp.Client", "BankingInternationalSystemsApp.Client\BankingInternationalSystemsApp.Client.csproj", "{2C3F1F8B-90B3-4865-B361-61160B4FD850}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4806B9A-7329-4912-99E4-6C6A1BF12DB8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

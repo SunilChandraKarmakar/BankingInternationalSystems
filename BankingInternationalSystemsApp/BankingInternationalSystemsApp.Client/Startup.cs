@@ -32,7 +32,15 @@ namespace BankingInternationalSystemsApp.Client
                 config.DurationInSeconds = 5;
                 config.IsDismissable = true;
                 config.Position = NotyfPosition.BottomRight;
-            });        
+            });
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
@@ -62,6 +70,8 @@ namespace BankingInternationalSystemsApp.Client
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
