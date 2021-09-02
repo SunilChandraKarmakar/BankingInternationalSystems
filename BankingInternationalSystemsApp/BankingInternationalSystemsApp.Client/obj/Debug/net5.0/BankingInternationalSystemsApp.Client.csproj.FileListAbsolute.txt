@@ -160,3 +160,4 @@ D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternation
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\staticwebassets\BankingInternationalSystemsApp.Client.StaticWebAssets.xml
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\AdminDashboard\Index.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\MyAccountInfo.cshtml.g.cs
+D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\WithdrawAmmount.cshtml.g.cs
