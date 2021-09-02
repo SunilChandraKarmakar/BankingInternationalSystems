@@ -1,0 +1,66 @@
+﻿@model LoginAccountViewModel
+@{
+    ViewData["Title"] = "Account Info";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h5 class="text-center">My Account Information</h5>
+        <hr />
+	</div>
+</div>
+<div class="row">
+    <div class=col-md-12>
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-controller="UserDashboard" asp-action="MyAccountInfo">
+                    <div class="form-row">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group col-md-6">
+                            <label asp-for="FirstName" class="form-label">First Name</label>
+                            <input type="text" asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+						</div>
+                         <div class="form-group col-md-6">
+                            <label asp-for="SecondName" class="form-label">Second Name</label>
+                            <input type="text" asp-for="SecondName" class="form-control" />
+                            <span asp-validation-for="SecondName" class="text-danger"></span>
+						</div>
+					</div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="AccountNumber" class="form-label">Account Number</label>
+                            <input type="number" asp-for="AccountNumber" class="form-control" readonly />
+                            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+						</div>
+                         <div class="form-group col-md-6">
+                            <label asp-for="InitialBalance" class="form-label">Initial Balance</label>
+                            <input type="number" asp-for="InitialBalance" class="form-control" min=1 />
+                            <span asp-validation-for="InitialBalance" class="text-danger"></span>
+						</div>
+					</div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+                         <div class="form-group col-md-6">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input type="password" asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+					</div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="form-label">Address</label>
+                        <textarea asp-for="Address" class="form-control"></textarea>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+					</div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success" style="width:300px">Update Information</button>
+					</div>
+				</form>
+            </div>
+        </div>
+	</div>
+</div>

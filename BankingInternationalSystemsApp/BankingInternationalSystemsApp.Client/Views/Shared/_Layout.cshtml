@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using BankingInternationalSystemsApp.Database
+
+@{
+    BisContext _dbContext = new BisContext();
+    string userId = Context.Session.GetString("userId");
+    int convertIntUserId = Convert.ToInt32(userId);
+
+    string adminId = Context.Session.GetString("adminId");
+    int convertIntAdminId = Convert.ToInt32(adminId);
+
+    Account loginUserAccountInfo = _dbContext.Accounts.Where(a => a.Id == convertIntUserId).FirstOrDefault();
+    Account loginAdminAccountInfo = _dbContext.Accounts.Where(a => a.Id == convertIntAdminId).FirstOrDefault();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,20 +26,36 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Banking International Systems</a>
+                <a class="navbar-brand" href="#">Banking International Systems</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Add Account</a>
-                        </li>
-                    </ul>
+                    @if(loginUserAccountInfo != null)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserDashboard" asp-action="MyAccountInfo">Account Info</a>
+                            </li>
+                         </ul>
+                         <ul class="navbar-nav flex-grow-1 justify-content-end">
+                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="UserDashboard" asp-action="Logout">Logout</a>
+                            </li>
+                        </ul>
+                    }
+                     @if(loginAdminAccountInfo != null)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Add Account</a>
+                            </li>
+                         </ul>
+                    }
                 </div>
             </div>
         </nav>
@@ -41,6 +72,8 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
