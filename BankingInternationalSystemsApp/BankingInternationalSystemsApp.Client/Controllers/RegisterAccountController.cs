@@ -33,6 +33,7 @@ namespace BankingInternationalSystemsApp.Client.Controllers
                 Account createAccount = _mapper.Map<Account>(registerAccount.CreateAccountViewModel);
                 createAccount.AccountNumber = GenerateUniqueAccountNumber();
                 createAccount.InitialBalance = 50;
+                bool isAccountCreated = await _accountManager.Add(createAccount);
 
                 AccountRole accountRoleIsUser = new AccountRole
                 {
@@ -40,9 +41,7 @@ namespace BankingInternationalSystemsApp.Client.Controllers
                     RoleId = 2
                 };
 
-                bool isAccountCreated = await _accountManager.Add(createAccount);
-                bool isAccountRoleCreated = await _accountRoleManager.Add(accountRoleIsUser);
-                
+                bool isAccountRoleCreated = await _accountRoleManager.Add(accountRoleIsUser);                  
                 if(isAccountCreated && isAccountRoleCreated)
                 {
                     _notyfService.Success("Account Registered Success.", 5);

@@ -8,7 +8,7 @@ namespace BankingInternationalSystemsApp.Repository.Base
 {
     public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly BisContext _db;
+        protected readonly BisContext _db;
 
         public BaseRepository()
         {

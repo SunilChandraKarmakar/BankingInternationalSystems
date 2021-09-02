@@ -15,8 +15,7 @@ namespace BankingInternationalSystemsApp.Model.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please Provied Unique Account Number")]
-        [StringLength(10, MinimumLength = 2)]
-        [DataType(DataType.PhoneNumber)]
+        [StringLength(15, MinimumLength = 2)]
         [Display(Name = "Account Number")]
         public int AccountNumber { get; set; }
 
@@ -32,7 +31,6 @@ namespace BankingInternationalSystemsApp.Model.Models
 
         [Required(ErrorMessage = "Please Provied Initial Balance")]
         [Display(Name = "Initial Balance")]
-        [DataType(DataType.Currency)]
         public double InitialBalance { get; set; }
 
         [Required(ErrorMessage = "Please Provied Valid Email Address")]

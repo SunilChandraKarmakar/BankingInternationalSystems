@@ -4,14 +4,16 @@ using BankingInternationalSystemsApp.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankingInternationalSystemsApp.Database.Migrations
 {
     [DbContext(typeof(BisContext))]
-    partial class BisContextModelSnapshot : ModelSnapshot
+    [Migration("20210902050636_UpdateAccountModel")]
+    partial class UpdateAccountModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,19 +66,6 @@ namespace BankingInternationalSystemsApp.Database.Migrations
                         .IsUnique();
 
                     b.ToTable("Accounts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccountNumber = 111111111,
-                            Address = "USA",
-                            Email = "mark@gmail.com",
-                            FirstName = "Mr Mark",
-                            InitialBalance = 200.0,
-                            Password = "12345",
-                            SecondName = "Job"
-                        });
                 });
 
             modelBuilder.Entity("BankingInternationalSystemsApp.Model.Models.AccountRole", b =>
@@ -99,14 +88,6 @@ namespace BankingInternationalSystemsApp.Database.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AccountRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccountId = 1,
-                            RoleId = 1
-                        });
                 });
 
             modelBuilder.Entity("BankingInternationalSystemsApp.Model.Models.BankService", b =>
@@ -170,18 +151,6 @@ namespace BankingInternationalSystemsApp.Database.Migrations
                         .IsUnique();
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "User"
-                        });
                 });
 
             modelBuilder.Entity("BankingInternationalSystemsApp.Model.Models.WithdrawAccount", b =>

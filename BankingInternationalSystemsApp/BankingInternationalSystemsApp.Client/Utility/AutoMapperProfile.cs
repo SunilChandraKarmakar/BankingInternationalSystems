@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewModel;
 using BankingInternationalSystemsApp.Model.Models;
 
 namespace BankingInternationalSystemsApp.Client.Utility
@@ -7,7 +8,7 @@ namespace BankingInternationalSystemsApp.Client.Utility
     {
         public AutoMapperProfile()
         {
-            //CreateMap<CreateAccountViewModel, Account>();
+            CreateMap<CreateAccountViewModel, Account>();
         }
     }
 }

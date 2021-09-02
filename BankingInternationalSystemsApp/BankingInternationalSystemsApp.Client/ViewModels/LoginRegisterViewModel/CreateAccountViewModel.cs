@@ -8,11 +8,8 @@ namespace BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewMode
 {
     public class CreateAccountViewModel
     {
-        [Required(ErrorMessage = "Please Provied Unique Account Number")]
-        [StringLength(10, MinimumLength = 2)]
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "Account Number")]
         public int AccountNumber { get; set; }
+        public double InitialBalance { get; set; }
 
         [Required(ErrorMessage = "Please Provied Your First Name")]
         [StringLength(20, MinimumLength = 2)]
@@ -23,11 +20,6 @@ namespace BankingInternationalSystemsApp.Client.ViewModels.LoginRegisterViewMode
         [StringLength(20, MinimumLength = 2)]
         [Display(Name = "Second Name")]
         public string SecondName { get; set; }
-
-        [Required(ErrorMessage = "Please Provied Initial Balance")]
-        [Display(Name = "Initial Balance")]
-        [DataType(DataType.Currency)]
-        public double InitialBalance { get; set; }
 
         [Required(ErrorMessage = "Please Provied Valid Email Address")]
         [StringLength(50, MinimumLength = 11)]
