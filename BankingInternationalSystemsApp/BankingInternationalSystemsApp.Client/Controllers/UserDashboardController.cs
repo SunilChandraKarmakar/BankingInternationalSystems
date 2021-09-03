@@ -157,6 +157,38 @@ namespace BankingInternationalSystemsApp.Client.Controllers
         }
 
         [HttpGet]
+        public async Task<ActionResult> DeleteAccount(int? id)
+        {
+            if (HttpContext.Session.GetString("userId") != null)
+            {
+                if (id == null)
+                {
+                    _notyfService.Success("Your account id not found! Trg again.", 5);
+                    return RedirectToAction("MyAccountInfo");
+                }
+
+                Account currentAccountInfo = await _accountManager.GetById(id);
+
+                if (currentAccountInfo == null)
+                {
+                    _notyfService.Success("Your account can not delete! Trg again.", 5);
+                    return RedirectToAction("MyAccountInfo");
+                }
+
+                bool isAccountDleted = await _accountManager.Delete(currentAccountInfo);
+
+                if (isAccountDleted)
+                {
+                    _notyfService.Success("Your account has been deleted.", 5);
+                    HttpContext.Session.Clear();
+                    return RedirectToAction("Login", "Login");
+                }
+            }
+
+            return RedirectToAction("Login", "Login");
+        }
+
+        [HttpGet]
         public async Task<ActionResult> Logout()
         {
             HttpContext.Session.Clear();

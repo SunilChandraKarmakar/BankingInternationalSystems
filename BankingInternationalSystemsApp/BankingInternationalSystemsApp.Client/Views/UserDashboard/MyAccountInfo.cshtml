@@ -17,26 +17,26 @@
                     <div class="form-row">
                         <input type="hidden" asp-for="Id" />
                         <div class="form-group col-md-6">
-                            <label asp-for="FirstName" class="form-label">First Name</label>
-                            <input type="text" asp-for="FirstName" class="form-control" />
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-						</div>
-                         <div class="form-group col-md-6">
-                            <label asp-for="SecondName" class="form-label">Second Name</label>
-                            <input type="text" asp-for="SecondName" class="form-control" />
-                            <span asp-validation-for="SecondName" class="text-danger"></span>
-						</div>
-					</div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
                             <label asp-for="AccountNumber" class="form-label">Account Number</label>
                             <input type="number" asp-for="AccountNumber" class="form-control" readonly />
                             <span asp-validation-for="AccountNumber" class="text-danger"></span>
 						</div>
-                         <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label asp-for="InitialBalance" class="form-label">Initial Balance</label>
-                            <input type="number" asp-for="InitialBalance" class="form-control" min=1 />
+                            <input type="number" asp-for="InitialBalance" class="form-control" min=1  readonly/>
                             <span asp-validation-for="InitialBalance" class="text-danger"></span>
+						</div>
+					</div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="FirstName" class="form-label">First Name</label>
+                            <input type="text" asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+						</div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="SecondName" class="form-label">Second Name</label>
+                            <input type="text" asp-for="SecondName" class="form-control" />
+                            <span asp-validation-for="SecondName" class="text-danger"></span>
 						</div>
 					</div>
                     <div class="form-row">
@@ -45,7 +45,7 @@
                             <input type="email" asp-for="Email" class="form-control" />
                             <span asp-validation-for="Email" class="text-danger"></span>
 						</div>
-                         <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label asp-for="Password" class="form-label">Password</label>
                             <input type="password" asp-for="Password" class="form-control" />
                             <span asp-validation-for="Password" class="text-danger"></span>
@@ -57,7 +57,8 @@
                         <span asp-validation-for="Address" class="text-danger"></span>
 					</div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn btn-success" style="width:300px">Update Information</button>
+                        <button type="submit" class="btn btn-success mr-2" style="width:300px">Update Information</button>
+                        <a asp-controller="UserDashboard" asp-action="DeleteAccount" asp-route-id="@Model.Id" onclick="return confirm('Are you sure want to delete account?')" class="btn btn-danger" style="width:300px">Delete My Account</a>
 					</div>
 				</form>
             </div>
