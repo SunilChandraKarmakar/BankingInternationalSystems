@@ -2,6 +2,8 @@
 using BankingInternationalSystemsApp.Manager.Contracts;
 using BankingInternationalSystemsApp.Model.Models;
 using BankingInternationalSystemsApp.Repository.Contracts;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BankingInternationalSystemsApp.Manager
 {
@@ -12,6 +14,11 @@ namespace BankingInternationalSystemsApp.Manager
         public WithdrawAccountManager(IWithdrawAccountRepository withdrawAccountRepository) : base(withdrawAccountRepository)
         {
             _withdrawAccountRepository = withdrawAccountRepository;
+        }
+
+        public override async Task<ICollection<WithdrawAccount>> GetAll()
+        {
+            return await _withdrawAccountRepository.GetAll();
         }
     }
 }
