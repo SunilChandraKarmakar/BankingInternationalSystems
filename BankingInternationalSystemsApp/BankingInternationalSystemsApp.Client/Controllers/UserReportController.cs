@@ -12,10 +12,12 @@ namespace BankingInternationalSystemsApp.Client.Controllers
     public class UserReportController : Controller
     {
         private readonly IWithdrawAccountManager _withdrawAccountManager;
+        private readonly ILodgeAccountManager _lodgeAccountManager;
 
-        public UserReportController(IWithdrawAccountManager withdrawAccountManager)
+        public UserReportController(IWithdrawAccountManager withdrawAccountManager, ILodgeAccountManager lodgeAccountManager)
         {
             _withdrawAccountManager = withdrawAccountManager;
+            _lodgeAccountManager = lodgeAccountManager;
         }
 
         [HttpGet]
@@ -28,6 +30,21 @@ namespace BankingInternationalSystemsApp.Client.Controllers
                 withdrawAccounts = withdrawAccounts.Where(wa => wa.AccountId == currentUserId).ToList();
 
                 return View(withdrawAccounts);
+            }
+
+            return RedirectToAction("Login", "Login");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> LodgeHistory()
+        {
+            if(HttpContext.Session.GetString("userId") != null)
+            {
+                int currentUserId = Convert.ToInt32(HttpContext.Session.GetString("userId"));
+                ICollection<LodgeAccount> lodgeAccounts = await _lodgeAccountManager.GetAll();
+                lodgeAccounts = lodgeAccounts.Where(wa => wa.AccountId == currentUserId).ToList();
+
+                return View(lodgeAccounts);
             }
 
             return RedirectToAction("Login", "Login");

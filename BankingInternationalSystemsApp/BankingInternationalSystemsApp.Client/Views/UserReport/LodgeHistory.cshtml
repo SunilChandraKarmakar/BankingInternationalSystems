@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LodgeAccount>
+@{
+    ViewData["Title"] = "Lodge History";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h5 class="text-center">My Lodge History</h5>
+        <hr />
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Lodge Ammount</th>
+                    <th>Lodge Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(LodgeAccount item in Model)
+                {
+                    <tr>
+                        <td>@item.Account.FirstName @item.Account.SecondName</td>
+                        <td>@item.Ammount</td>
+                        <td>@item.LodgeDateTime.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Lodge Ammount</th>
+                    <th>Lodge Date</th>
+                </tr>
+            </tfoot>
+        </table>
+	</div>
+</div>

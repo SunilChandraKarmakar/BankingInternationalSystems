@@ -163,3 +163,4 @@ D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternation
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\WithdrawAmmount.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\LodgeAmmount.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserReport\WithdrawHistory.cshtml.g.cs
+D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserReport\LodgeHistory.cshtml.g.cs
