@@ -158,9 +158,11 @@ D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternation
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\AspNetCoreHero.ToastNotification.Views.dll
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\AspNetCoreHero.ToastNotification.dll
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\staticwebassets\BankingInternationalSystemsApp.Client.StaticWebAssets.xml
-D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\AdminDashboard\Index.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\MyAccountInfo.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\WithdrawAmmount.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserDashboard\LodgeAmmount.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserReport\WithdrawHistory.cshtml.g.cs
 D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\UserReport\LodgeHistory.cshtml.g.cs
+D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\AdminDashboard\DisplayAccount.cshtml.g.cs
+D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\BankingInternationalSystems\BankingInternationalSystemsApp\BankingInternationalSystemsApp.Client\obj\Debug\net5.0\Razor\Views\AdminDashboard\AccountDetails.cshtml.g.cs

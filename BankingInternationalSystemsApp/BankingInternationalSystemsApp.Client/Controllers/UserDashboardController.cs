@@ -191,7 +191,12 @@ namespace BankingInternationalSystemsApp.Client.Controllers
         [HttpGet]
         public async Task<ActionResult> Logout()
         {
-            HttpContext.Session.Clear();
+            if(HttpContext.Session.GetString("userId") != null)
+            {
+                HttpContext.Session.Clear();
+                return RedirectToAction("Login", "Login");
+            }
+
             return RedirectToAction("Login", "Login");
         }
     }

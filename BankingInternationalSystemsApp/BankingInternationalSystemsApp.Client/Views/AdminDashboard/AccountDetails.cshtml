@@ -1,0 +1,53 @@
+﻿@model BankingInternationalSystemsApp.Model.Models.Account
+
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h5 class="text-center">Account Details</h5>
+        <hr />
+	</div>
+</div>
+<div class="row">
+    <div class=col-md-12>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class = "col-sm-2">
+                        Full Name
+                    </dt>
+                    <dd class = "col-sm-10">
+                        @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.SecondName)
+                    </dd>
+                    <dt class = "col-sm-2">
+                        @Html.DisplayNameFor(model => model.AccountNumber)
+                    </dt>
+                    <dd class = "col-sm-10">
+                        @Html.DisplayFor(model => model.AccountNumber)
+                    </dd>                              
+                    <dt class = "col-sm-2">
+                        @Html.DisplayNameFor(model => model.InitialBalance)
+                    </dt>
+                    <dd class = "col-sm-10">
+                        @Html.DisplayFor(model => model.InitialBalance)
+                    </dd>
+                    <dt class = "col-sm-2">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class = "col-sm-10">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class = "col-sm-2">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dd class = "col-sm-10">
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                </dl>
+                <a asp-action="DisplayAccount" class="btn btn-info">Back To List</a>
+			</div>
+		</div>
+	</div>
+</div>

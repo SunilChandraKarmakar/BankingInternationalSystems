@@ -59,7 +59,7 @@ namespace BankingInternationalSystemsApp.Client.Controllers
                 {
                     HttpContext.Session.SetString("adminId", loginAccountIsAdmin.AccountId.ToString());
                     _notyfService.Success("Login Successfull", 5);
-                    return RedirectToAction("Index", "AdminDashboard");
+                    return RedirectToAction("DisplayAccount", "AdminDashboard");
                 }
             }
 
